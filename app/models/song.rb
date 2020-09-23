@@ -9,18 +9,18 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist.name if self.artist
+    self.artist.name if self.artist 
   end
 
-  def note_contents=(notes)
-    notes.each do |n|
+  def s_notes=(s_notes)
+    s_notes.each do |n|
       unless n == "" || n == "nil"
         self.notes.build(content: n)
       end
     end
   end
 
-  def note_contents
+  def s_notes
     self.notes.map {|n| n.content}
   end
 end
